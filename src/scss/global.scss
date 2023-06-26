@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:wght@400;500;600&display=swap");
+@import "./skins.scss";
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-size: 40px;
+  line-height: 40px;
+}

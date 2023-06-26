@@ -1,0 +1,29 @@
+@import "../../scss/index.scss";
+
+.section {
+  @extend %flex-center;
+  justify-content: center;
+  background-image: url("../../assets/banner_background.png");
+  background-size: cover;
+  min-height: 500px;
+  margin: 0 auto;
+  @include md-min {
+    width: 1170px;
+  }
+}
+.contentBlock {
+  padding: 40px 16px 70px 16px;
+  height: 100%;
+  text-align: center;
+  @include sm-min {
+    max-width: 380px;
+  }
+}
+.title {
+  color: $text-color-white;
+  margin-bottom: 21px;
+}
+.description {
+  color: $text-color-white;
+  margin-bottom: 32px;
+}

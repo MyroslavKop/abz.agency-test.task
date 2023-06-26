@@ -1,0 +1,25 @@
+@import "../../scss/index.scss";
+
+.header {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.nav {
+  @extend %flex-center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 17px;
+  @include md-sm {
+    padding: 17px 32px;
+  }
+  @include lg-md {
+    padding: 17px 60px;
+  }
+  @include lg-min {
+    padding: 17px 0;
+  }
+}
+.buttonsGroup {
+  @extend %flex-center;
+  gap: 10px;
+}
