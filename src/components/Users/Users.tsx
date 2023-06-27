@@ -11,6 +11,7 @@ const Users = () => {
   const [data, setData] = useState<IUser[]>([]);
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
+  const [hideButton, setHideButton] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
@@ -19,6 +20,7 @@ const Users = () => {
         const { users }: { users: IUser[] } = await getUsers(page);
         setData(data.concat(users));
       } catch (error) {
+        setHideButton(true);
         console.error(error);
       } finally {
         setLoading(false);
@@ -39,8 +41,8 @@ const Users = () => {
           data.map(({ photo, name, position, email, phone, id }: IUser) => (
             <div key={id} className={styles.card}>
               <img src={photo} alt={name} className={styles.photo} />
-              <p>{name}</p>
-              <div>
+              <p className={styles.text}>{name}</p>
+              <div className={styles.info}>
                 <p className={styles.text}>{position}</p>
                 <p className={styles.text}>{email}</p>
                 <p className={styles.text}>{phone}</p>
@@ -48,7 +50,7 @@ const Users = () => {
             </div>
           ))}
       </div>
-      {loading ? <Spinner /> : <Button text="Show more" onClick={handleLoadPage} />}
+      {loading ? <Spinner /> : <Button text="Show more" onClick={handleLoadPage} hidden={hideButton} />}
     </section>
   );
 };

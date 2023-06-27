@@ -7,9 +7,6 @@
   background-size: cover;
   min-height: 500px;
   margin: 0 auto;
-  @include md-min {
-    width: 1170px;
-  }
 }
 .contentBlock {
   padding: 40px 16px 70px 16px;

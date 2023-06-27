@@ -5,7 +5,7 @@ export const getUsers = async (page: number): Promise<any> => {
     const data = await axios.get('/users?', {
       params: {
         page,
-        count: 5,
+        count: 6,
       },
     });
     return data;
