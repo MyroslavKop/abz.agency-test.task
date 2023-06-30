@@ -1,0 +1,11 @@
+@import "../../scss/index.scss";
+
+.userRegistration {
+  @extend %flex-center-column;
+}
+.title {
+  margin-bottom: 50px;
+}
+.userRegistration {
+  padding: 0 17px;
+}

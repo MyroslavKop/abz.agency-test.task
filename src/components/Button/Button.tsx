@@ -1,9 +1,9 @@
 import styles from './Button.module.scss';
 import ButtonProps from './interface';
 
-const Button = ({ text, onClick, hidden }: ButtonProps) => {
+const Button = ({ text, onClick, hidden, type }: ButtonProps) => {
   return (
-    <button className={`${styles.button} ${hidden ? styles.active : null}`} onClick={onClick}>
+    <button className={`${styles.button} ${hidden ? styles.active : null}`} onClick={onClick} type={type}>
       {text}
     </button>
   );

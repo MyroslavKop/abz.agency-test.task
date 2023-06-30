@@ -1,11 +1,9 @@
 @import "../../scss/index.scss";
 
 .users {
-  @extend %flex-center;
-  padding: 140px 17px;
-  justify-content: center;
-  flex-direction: column;
+  @extend %flex-center-column;
   gap: 50px;
+  padding: 140px 0;
   @include sm-xs {
     padding: 140px 30px;
   }
@@ -30,7 +28,7 @@
 .card {
   max-width: 328px;
   padding: 20px;
-  height: 254px;
+  min-height: 254px;
   border-radius: 10px;
   background-color: $text-color-white;
   text-align: center;

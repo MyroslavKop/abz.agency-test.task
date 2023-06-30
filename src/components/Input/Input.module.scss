@@ -1,0 +1,154 @@
+@import "../../scss/index.scss";
+
+// standard input
+
+.textField {
+  position: relative;
+  input::placeholder {
+    opacity: 0;
+  }
+  .textFieldInput {
+    border-radius: 4px;
+    border: 1px solid $input-color;
+    width: 328px;
+    height: 54px;
+    padding: 14px 16px;
+    outline: none;
+    background-color: $background-color;
+    font-size: 16px;
+  }
+  .textFieldLabel {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $label-color;
+    transition: 0.3s;
+    padding-left: 5px;
+  }
+  .helperText {
+    position: absolute;
+    font-size: 12px;
+    top: 100%;
+    left: 0;
+    padding-left: 16px;
+    color: $label-color;
+  }
+  .textFieldError {
+    border: 1px solid $error-color;
+  }
+  .textFieldLabelError {
+    color: $error-color;
+  }
+  .helperTextError {
+    color: $error-color;
+  }
+}
+.textField input:focus + label,
+.textField input:not(:placeholder-shown) + label {
+  top: 0;
+  background: $background-color;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 5px;
+}
+
+// radio button input
+
+.radioButton {
+  @extend %flex-center;
+  gap: 12px;
+  .radioButtonInput {
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      border: 1px solid $input-color;
+    }
+    &:checked:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      border: 1px solid $secondary-color;
+    }
+    &:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $secondary-color;
+      transform: translate(-50%, -50%);
+      border-color: $secondary-color;
+      visibility: visible;
+    }
+  }
+  .radioButtonLabel {
+    cursor: pointer;
+  }
+}
+
+// file upload
+
+.fileUpload {
+  display: flex;
+  .fileUploadInput {
+    display: none;
+  }
+  .fileUploadLabel {
+    width: 83px;
+    cursor: pointer;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px 0px 0px 4px;
+    border: 1px solid black;
+  }
+  .fileUploadDescription {
+    display: inline-block;
+    position: relative;
+    width: 245px;
+    border-radius: 4px;
+    border: 1px solid $input-color;
+    height: 54px;
+    color: $label-color;
+    overflow: hidden;
+    span {
+      margin: 0;
+      padding-left: 16px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    .file {
+      color: black;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+}
