@@ -27,12 +27,7 @@
     padding-left: 5px;
   }
   .helperText {
-    position: absolute;
-    font-size: 12px;
-    top: 100%;
-    left: 0;
-    padding-left: 16px;
-    color: $label-color;
+    @extend %helper-text;
   }
   .textFieldError {
     border: 1px solid $error-color;
@@ -41,7 +36,7 @@
     color: $error-color;
   }
   .helperTextError {
-    color: $error-color;
+    @extend %helper-text-error;
   }
 }
 .textField input:focus + label,
@@ -115,6 +110,7 @@
 
 .fileUpload {
   display: flex;
+  position: relative;
   .fileUploadInput {
     display: none;
   }
@@ -150,5 +146,8 @@
       overflow: hidden;
       width: 100%;
     }
+  }
+  .helperTextError {
+    @extend %helper-text-error;
   }
 }

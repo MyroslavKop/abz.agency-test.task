@@ -19,6 +19,7 @@ const Users = () => {
         setLoading(true);
         const { users }: { users: IUser[] } = await getUsers(page);
         setData(data.concat(users));
+        console.log(data);
       } catch (error) {
         setHideButton(true);
         console.error(error);

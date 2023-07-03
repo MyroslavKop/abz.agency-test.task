@@ -1,3 +1,5 @@
+@import "./skins.scss";
+
 %flex-center {
   display: flex;
   align-items: center;
@@ -7,4 +9,20 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+%helper-text {
+  position: absolute;
+  font-size: 12px;
+  top: 100%;
+  left: 0;
+  padding-left: 16px;
+  color: $label-color;
+}
+%helper-text-error {
+  position: absolute;
+  font-size: 12px;
+  top: 100%;
+  left: 0;
+  padding-left: 16px;
+  color: $error-color;
 }

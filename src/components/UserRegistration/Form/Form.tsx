@@ -8,22 +8,37 @@ import schema from '../../../helpers/schema';
 import Button from '../../Button/Button';
 import { FileUpload, RadioButton, TextField } from '../../Input/Input';
 
+import axios from '../../../helpers/axios';
 import styles from './Form.module.scss';
 import { IFormValues, IPosition } from './interface';
 
 const Form = () => {
   const [data, setData] = useState<IPosition[]>([]);
+
   const {
     handleSubmit,
     register,
     watch,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<IFormValues | any>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    console.log(data);
+  const hasErrors: boolean = Object.keys(errors).length > 0;
+  const isFormEmpty: boolean = !isDirty;
+
+  const onSubmit: SubmitHandler<IFormValues> = async (user) => {
+    try {
+      const data = await axios.post('users', {
+        headers: {
+          token:
+            'eyJpdiI6Ik1YeG13cFRUTDU3bEdONElkeUp1OHc9PSIsInZhbHVlIjoiUnMrU2ZTaWNqU2ZFRnUzOGI4bjhPS1wvamZxaHB3S1wvRElvcVBUczNHVGdvaE53bmUxeTFFQ2FuZnZWalVORTdRXC84ODQxdkpSb0Z2cWJhNFlINDFicHc9PSIsIm1hYyI6IjYxYjQxNTgzY2ZhM2Q5MjJmMGZhYzhlZTk0YTc3MzY2OTU1ZGM1OGZkNjM5OTkyZGNkZmIzZjJiY2Q4M2ZiMmQifQ==',
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -80,7 +95,7 @@ const Form = () => {
           })}
       </div>
       <FileUpload register={register} watch={watch} error={errors.photo} errorMessage={errors.photo?.message} />
-      <Button text="Sign up" type="submit" />
+      <Button text="Sign up" type="submit" disabled={hasErrors || isFormEmpty} />
     </form>
   );
 };

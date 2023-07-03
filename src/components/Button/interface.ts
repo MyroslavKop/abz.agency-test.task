@@ -3,6 +3,7 @@ interface ButtonProps {
   onClick?: () => void;
   hidden?: boolean;
   type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
 export default ButtonProps;

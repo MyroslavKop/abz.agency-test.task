@@ -61,7 +61,7 @@ export const FileUpload = ({ register, watch, error, errorMessage }: IFileUpload
           <span className={styles.file}>{watch('photo')[0].name}</span>
         )}
       </div>
-      {error && <span className={`${styles.helperText} ${styles.helperTextError}`}>{errorMessage}</span>}
+      {error && <span className={styles.helperTextError}>{errorMessage}</span>}
     </div>
   );
 };
