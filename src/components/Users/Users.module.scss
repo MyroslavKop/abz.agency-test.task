@@ -4,12 +4,16 @@
   @extend %flex-center-column;
   gap: 50px;
   padding: 140px 0;
-  background: red;
   @include sm-xs {
     padding: 140px 30px;
   }
   @include md-sm {
-    padding: 140px 65px;
+    padding: 140px 32px;
+  }
+  @include md-min {
+    margin: 0 auto;
+    max-width: 1170px;
+    padding: 140px 60px;
   }
 }
 .cards {
@@ -18,12 +22,12 @@
   gap: 20px;
   @include md-sm {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
   @include md-min {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-  @include sm-min {
-    gap: 30px;
+    width: 100%;
+    justify-items: center;
   }
 }
 .card {
@@ -34,12 +38,16 @@
   background-color: $text-color-white;
   text-align: center;
   overflow: hidden;
+  @include xs {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
   @include sm {
     width: 300px;
   }
   @include md-sm {
-    width: 344px;
+    width: 340px;
   }
   @include lg-md {
     width: 282px;

@@ -3,19 +3,19 @@
 .section {
   @extend %flex-center;
   justify-content: center;
-  background-image: url("../../assets/background-2560.png");
+  background-image: url("../../assets/img/background-2560.png");
   background-size: cover;
   min-height: 500px;
   margin: 0 auto;
   max-width: 1170px;
   @include xs {
-    background-image: url("../../assets/backgound-360.png");
+    background-image: url("../../assets/img/backgound-360.png");
   }
   @include sm-xs {
-    background-image: url("../../assets//background-768.png");
+    background-image: url("../../assets/img/background-768.png");
   }
   @include md-sm {
-    background-image: url("../../assets/background-1024.png");
+    background-image: url("../../assets/img/background-1024.png");
   }
   @include md-min {
     min-height: 650px;

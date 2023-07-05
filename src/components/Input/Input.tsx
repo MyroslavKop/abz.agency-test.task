@@ -29,7 +29,7 @@ export const TextField = ({
   );
 };
 
-export const RadioButton = ({ register, name, value, checked }: IRadioButton) => {
+export const RadioButton = ({ register, name, value, isChecked }: IRadioButton) => {
   return (
     <div className={styles.radioButton}>
       <input
@@ -38,7 +38,7 @@ export const RadioButton = ({ register, name, value, checked }: IRadioButton) =>
         id={name}
         {...register('position_id')}
         value={value}
-        checked={checked}
+        defaultChecked={isChecked}
       />
       <label className={styles.radioButtonLabel} htmlFor={name}>
         {name}
@@ -51,10 +51,10 @@ export const FileUpload = ({ register, watch, error, errorMessage }: IFileUpload
   return (
     <div className={styles.fileUpload}>
       <input type="file" className={styles.fileUploadInput} id="photo" {...register('photo')} />
-      <label htmlFor="photo" className={styles.fileUploadLabel}>
+      <label htmlFor="photo" className={`${error && styles.errorLabel} ${styles.fileUploadLabel}`}>
         Upload
       </label>
-      <div className={styles.fileUploadDescription}>
+      <div className={`${error && styles.errorDescription} ${styles.fileUploadDescription}`}>
         {!watch('photo') || watch('photo').length === 0 ? (
           <span>Upload your photo</span>
         ) : (

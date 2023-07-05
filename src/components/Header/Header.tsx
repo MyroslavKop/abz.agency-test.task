@@ -1,4 +1,4 @@
-import Logo from '../../assets/Logo.svg';
+import Logo from '../../assets/svg/Logo.svg';
 import Button from '../Button/Button';
 import styles from './Header.module.scss';
 

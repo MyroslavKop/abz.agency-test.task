@@ -1,10 +1,10 @@
-interface IUser {
-  id: number;
-  name: string;
-  phone: string;
-  position: string;
-  photo: string;
-  email: string;
-}
+import { Dispatch, SetStateAction } from 'react';
 
-export default IUser;
+import { IUser } from '../../interfaces';
+
+export interface IUsersProps {
+  data: IUser[];
+  setData: Dispatch<SetStateAction<IUser[]>>;
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+}

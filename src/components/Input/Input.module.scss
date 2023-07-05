@@ -16,6 +16,9 @@
     outline: none;
     background-color: $background-color;
     font-size: 16px;
+    @include xs {
+      width: 250px;
+    }
   }
   .textFieldLabel {
     position: absolute;
@@ -30,7 +33,7 @@
     @extend %helper-text;
   }
   .textFieldError {
-    border: 1px solid $error-color;
+    border: 2px solid $error-color;
   }
   .textFieldLabelError {
     color: $error-color;
@@ -123,16 +126,23 @@
     justify-content: center;
     border-radius: 4px 0px 0px 4px;
     border: 1px solid black;
+    &:hover {
+      background-color: $input-color;
+      transition: 0.25s;
+    }
   }
   .fileUploadDescription {
     display: inline-block;
     position: relative;
     width: 245px;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
     border: 1px solid $input-color;
     height: 54px;
     color: $label-color;
     overflow: hidden;
+    @include xs {
+      width: 167px;
+    }
     span {
       margin: 0;
       padding-left: 16px;
@@ -149,5 +159,15 @@
   }
   .helperTextError {
     @extend %helper-text-error;
+  }
+  .errorDescription {
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    border-color: $error-color;
+  }
+  .errorLabel {
+    border-width: 2px 0 2px 2px;
+    border-style: solid;
+    border-color: $error-color;
   }
 }

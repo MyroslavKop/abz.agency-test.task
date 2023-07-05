@@ -1,3 +1,7 @@
+import { Dispatch, SetStateAction } from 'react';
+
+import { IUser } from '../../../interfaces';
+
 export interface IFormValues {
   name: string;
   phone: string;
@@ -6,7 +10,8 @@ export interface IFormValues {
   photo: FileList;
 }
 
-export interface IPosition {
-  id: number;
-  name: string;
+export interface IFormProps {
+  successRegistration: boolean;
+  setSuccessRegistration: Dispatch<SetStateAction<boolean>>;
+  setUsers: Dispatch<SetStateAction<IUser[]>>;
 }

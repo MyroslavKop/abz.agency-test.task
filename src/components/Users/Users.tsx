@@ -4,12 +4,11 @@ import Button from '../Button/Button';
 import Spinner from '../Spinner/Spinner';
 
 import { getUsers } from '../../api/api';
-import IUser from './interface';
+import { IUser } from '../../interfaces';
+import { IUsersProps } from './interface';
 import styles from './Users.module.scss';
 
-const Users = () => {
-  const [data, setData] = useState<IUser[]>([]);
-  const [page, setPage] = useState<number>(1);
+const Users = ({ data, setData, page, setPage }: IUsersProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [hideButton, setHideButton] = useState<boolean>(false);
 
@@ -18,8 +17,7 @@ const Users = () => {
       try {
         setLoading(true);
         const { users }: { users: IUser[] } = await getUsers(page);
-        setData(data.concat(users));
-        console.log(data);
+        setData((prevData) => [...prevData, ...users]);
       } catch (error) {
         setHideButton(true);
         console.error(error);
@@ -35,7 +33,7 @@ const Users = () => {
   };
 
   return (
-    <section className={styles.users}>
+    <section className={styles.users} id="users">
       <h2 className={styles.title}>Working with GET request</h2>
       <div className={styles.cards}>
         {data &&

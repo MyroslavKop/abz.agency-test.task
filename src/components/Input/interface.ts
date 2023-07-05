@@ -16,7 +16,7 @@ export interface IRadioButton {
   name: string;
   register: UseFormRegister<IFormValues>;
   value: string | number;
-  checked: any;
+  isChecked: boolean;
 }
 
 export interface IFileUpload {
