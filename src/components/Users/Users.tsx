@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Button from '../Button/Button';
 import Spinner from '../Spinner/Spinner';
+import Tooltip from '../Tooltip/Tooltip';
 
 import { getUsers } from '../../api/api';
 import { IUser } from '../../interfaces';
@@ -26,7 +27,7 @@ const Users = ({ data, setData, page, setPage }: IUsersProps) => {
       }
     };
     fetchData();
-  }, [page]);
+  }, [page, setData]);
 
   const handleLoadPage = () => {
     setPage((prevPage) => prevPage + 1);
@@ -43,7 +44,9 @@ const Users = ({ data, setData, page, setPage }: IUsersProps) => {
               <p className={styles.text}>{name}</p>
               <div className={styles.info}>
                 <p className={styles.text}>{position}</p>
-                <p className={styles.text}>{email}</p>
+                <Tooltip text={email}>
+                  <p className={styles.text}>{email}</p>
+                </Tooltip>
                 <p className={styles.text}>{phone}</p>
               </div>
             </div>

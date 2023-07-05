@@ -14,7 +14,13 @@ function isValidFileType(fileName: string, fileType: string): boolean {
 
 const schema = yup.object({
   name: yup.string().trim().required('This field is required!').min(2, 'Min length is 2').max(60, 'Max length is 60'),
-  email: yup.string().email('Must be a valid email').trim().required('This field is required!'),
+  email: yup
+    .string()
+    .email('Must be a valid email')
+    .trim()
+    .required('This field is required!')
+    .min(2, 'Min length is 2')
+    .max(100, 'Max length is 60'),
   phone: yup.string().trim().required('This field is required!').matches(phoneRegExp, 'Phone number is not valid'),
   photo: yup
     .mixed<FileList>()

@@ -33,11 +33,11 @@
 .card {
   padding: 20px;
   width: 370px;
+  position: relative;
   min-height: 254px;
   border-radius: 10px;
   background-color: $text-color-white;
   text-align: center;
-  overflow: hidden;
   @include xs {
     max-width: 80%;
     margin: 0 auto;

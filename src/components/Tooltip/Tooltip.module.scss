@@ -1,0 +1,20 @@
+@import "../../scss/index.scss";
+
+.tooltip {
+  position: absolute;
+  top: calc(100% - 20px);
+  padding: 3px 16px;
+  border-radius: 4px;
+  color: $text-color-white;
+  background: var(--black-87, rgba(0, 0, 0, 0.87));
+  z-index: 100;
+
+  @include sm {
+    max-width: 300px;
+    word-wrap: break-word;
+  }
+  @include xs {
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+}

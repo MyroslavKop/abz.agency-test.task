@@ -10,11 +10,11 @@
   font-size: 16px;
   padding: 4px 19px;
   margin: 0 auto;
-  text-wrap: nowrap;
+  white-space: nowrap;
   @include xs {
     padding: 5px;
     min-width: 0;
-    max-width: 80px;
+    max-width: 90px;
   }
   &:hover {
     background-color: $button-hover-color;
