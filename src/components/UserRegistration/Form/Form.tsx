@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
